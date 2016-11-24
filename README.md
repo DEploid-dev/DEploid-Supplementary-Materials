@@ -2,7 +2,8 @@
 
 Raw data can be find at [ftp://ngs.sanger.ac.uk/production/pf3k/release_5/5.1/](ftp://ngs.sanger.ac.uk/production/pf3k/release_5/5.1/). The dataset contains both indels and SNPs for all Pf3k samples. Variant data are seperated by chromosomes. The program DEploid does not handle INDELs nor multi-allelic variants. We therefore filter the data with the following command, and create a "high quality bialleic SNP" data set for chromosomes 1 to 14.
 
-```bcftools view \
+```
+bcftools view \
 --include 'FILTER="PASS"' \
 --min-alleles 2 \
 --max-alleles 2 \
