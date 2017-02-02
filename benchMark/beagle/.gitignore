@@ -3,3 +3,5 @@ labMixed.gl.out.vcf.gz
 labMixed.gl.vcf.gz
 labSampleNames
 rewriteGT.py
+.RData
+githubLatex.r.Rout

@@ -1,6 +1,6 @@
 ## SHAPEIT
 
-This directory contains code to infer strain haplotypes of mixed *Plasmodium falciparum* samples using [O'Connell *et al.* (2014)](#shapit)'s method.
+This directory contains code to phase strain haplotypes of mixed *Plasmodium falciparum* samples using [O'Connell *et al.* (2014)](#shapit)'s method.
 
 To use `SHAPEIT`, we first split the VCF file by chromosome IDs. Each file contains SNPs of the 27 lab mixed samples. The field `FORMAT` specifies the information of each sample at every site (row), which can be `GT:AD:DP:GQ:PL` or `GT:AD:DP:GQ:PGT:PID:PL`. Regardless which format it uses, it must include the attribute `GT`, which specifies the genotype of the site. `SHAPEIT` uses the `GT` information, and phase the sequence. Note that the genotypes are inferred by GATK Best Practices ([DePristo *et al.* 2011](#gatk)).
 
