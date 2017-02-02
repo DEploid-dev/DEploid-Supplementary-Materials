@@ -1,6 +1,8 @@
 ## SHAPEIT
 
-To use `SHAPEIT`, we split the VCF file by chromosome IDs
+This directory contains code to infer strain haplotypes of mixed *Plasmodium falciparum* samples using [O'Connell *et al.* (2014)](#shapit)'s method.
+
+To use `SHAPEIT`, we first split the VCF file by chromosome IDs. Each file contains SNPs of the 27 lab mixed samples. The field `FORMAT` specifies the information of each sample at every site (row), which can be `GT:AD:DP:GQ:PL` or `GT:AD:DP:GQ:PGT:PID:PL`. Regardless which format it uses, it must include the attribute `GT`, which specifies the genotype of the site. `SHAPEIT` uses the `GT` information, and phase the sequence. Note that the genotypes are inferred by GATK Best Practices ([DePristo *et al.* 2011](#gatk)).
 
 ```bash
 tabix labMixed.vcf.gz
@@ -22,7 +24,10 @@ On the cluster, do the following to get the haplotypes for each sample.
 while read chr; do echo ${chr}; /apps/well/shapeit/2.r790/shapeit -V tmp/${chr}.vcf -O tmp/${chr}; done < chromID
 
 while read chr; do echo ${chr}; cat ${chr}.haps >> shape2.haps; done < chromID
+```
+Once the sequence data is phased, we use the following command to separate the haplotypes by samples.
 
+```bash
 cut -d ' ' -f 1,3,6,7 shape2.haps > PG0389-C.haps
 cut -d ' ' -f 1,3,8,9 shape2.haps > PG0390-C.haps
 cut -d ' ' -f 1,3,10,11 shape2.haps > PG0391-C.haps
@@ -51,3 +56,8 @@ cut -d ' ' -f 1,3,54,55 shape2.haps > PG0413-C.haps
 cut -d ' ' -f 1,3,56,57 shape2.haps > PG0414-C.haps
 cut -d ' ' -f 1,3,58,59 shape2.haps > PG0415-C.haps
 ```
+
+### References
+O'Connell J, Gurdasani D, Delaneau O, Pirastu N, Ulivi S, et al. (2014) A General Approach for Haplotype Phasing across the Full Spectrum of Relatedness. *PLOS Genetics* 10(4): e1004234. doi: 10.1371/journal.pgen.1004234 <a name="shapit"></a>
+
+DePristo M, Banks E, Poplin R, Garimella K, Maguire J, Hartl C, Philippakis A, del Angel G, Rivas MA, Hanna M, McKenna A, Fennell T, Kernytsky A, Sivachenko A, Cibulskis K, Gabriel S, Altshuler D, Daly M. (2011) A framework for variation discovery and genotyping using next-generation DNA sequencing data. *Nature genetics* 43:491-498 <a name="gatk"></a>
