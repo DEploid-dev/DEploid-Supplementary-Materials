@@ -2,9 +2,9 @@
 
 This directory contains code to infer and phase strain haplotypes of mixed *Plasmodium falciparum* samples using [Browning and Browning (2007)](#beagle)'s method.
 
-`BEAGLE` requires genotype likelihood of homozygous reference, heterozygous and homozygous alternative as input, which is calculated by <img src="https://github.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/eq_no_01.png" alt="Equation not rendered" height="20">, where <img src="https://github.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/eq_no_02.png" alt="Equation not rendered" height="20"> and <img src="https://github.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/eq_no_03.png" alt="Equation not rendered" height="20"> are the reference and alternative allele counts, and <img src="https://github.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/eq_no_04.png" alt="Equation not rendered" height="20"> is the error rate when
+`BEAGLE` requires genotype likelihood of homozygous reference, heterozygous and homozygous alternative as input, which is calculated by <img src="https://raw.githubusercontent.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/eq_no_01.png" alt="Equation not rendered" height="20">, where <img src="https://raw.githubusercontent.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/eq_no_02.png" alt="Equation not rendered" height="20"> and <img src="https://raw.githubusercontent.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/eq_no_03.png" alt="Equation not rendered" height="20"> are the reference and alternative allele counts, and <img src="https://raw.githubusercontent.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/eq_no_04.png" alt="Equation not rendered" height="20"> is the error rate when
 
-<img src="https://github.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/eq_no_05.png" alt="Equation not rendered" height="20">
+<img src="https://raw.githubusercontent.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/eq_no_05.png" alt="Equation not rendered" height="20">
 
 First convert the VCF to `BEAGLE` input format
 
