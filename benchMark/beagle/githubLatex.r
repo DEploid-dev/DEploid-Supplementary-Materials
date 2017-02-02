@@ -153,7 +153,7 @@ parse_latex = function(rmd, new_md, img_prefix = "",
 
 rmd = "README_unparse.rmd"
 new_md = "README.md"
-img_prefix = "https://github.com/shajoezhu/DEploid-Supplementary-Materials/tree/master/benchMark/beagle/"
+img_prefix = "https://github.com/shajoezhu/DEploid-Supplementary-Materials/master/benchMark/beagle/"
 
 parse_latex(rmd,
             new_md,
