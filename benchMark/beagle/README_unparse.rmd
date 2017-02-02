@@ -2,17 +2,13 @@
 
 This directory contains code to infer and phase strain haplotypes of mixed *Plasmodium falciparum* samples using [Browning and Browning (2007)](#beagle)'s method.
 
-`BEAGLE` requires genotype likelihood of homozygous reference, heterozygous and homozygous alternative as input, which is calculated by $r \log_{10}(1-x) + a \log_{10}(x)$, where $r$ and $a$ are the reference and alternative allele counts, and $x$ is the error rate when
-
-$x = \begin{cases}0.01, & \textrm{homozygous reference}\\ 0.5, & \textrm{heterozygous} \\ 0.99, & \textrm{homozygous alternative} \end{cases}$
-
-First convert the VCF to `BEAGLE` input format
+`BEAGLE` requires genotype likelihood of homozygous reference, heterozygous and homozygous alternative as input, which is calculated by $r \log_{10}(1-x) + a \log_{10}(x)$, where $r$ and $a$ are the reference and alternative allele counts, and $x$ is the error rate, which takes value of 0.01, 0.5 and 0.99 when it's homozygous reference, heterozygous and homozygous alternative. We first convert the VCF to `BEAGLE` input format
 
 ```bash
 ./convert_pf3k_vcf_to_beagle_input.py labMixed.vcf.gz
 ```
 
-The we run `BEAGLE` with following command:
+then run `BEAGLE` with following command:
 
 ```bash
 java  -Xmx3512m -jar ~/researchDiary/beagle/beagle.r1398.jar gl=labMixed.gl.vcf.gz out=labMixed.gl.out
