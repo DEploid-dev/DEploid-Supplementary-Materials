@@ -1,6 +1,6 @@
 ## COIL
 
-This directory includes code to infer number of parasite strains in mixed *Plasmodium falciparum* samples using [Galinsky *et al.* (2015)](#coil)'s method `COIL`. This method uses genetic barcode as input, which is genotype information, to infer number of strains. First we convert the VCF to `COIL` input format, where we encode hetrozygous site as "N", and missing site as ``X''.
+This directory includes code to infer number of parasite strains in mixed *Plasmodium falciparum* samples using [Galinsky *et al.* (2015)](#coil)'s method `COIL`. This method uses genetic barcode as input, which is genotype information, to infer number of strains. First we convert the VCF to `COIL` input format, where we encode heterozygous site as "N", and missing site as ``X''.
 
 ```bash
 ./convert_pf3k_vcf_to_COIL_input.py labMixed.vcf.gz
