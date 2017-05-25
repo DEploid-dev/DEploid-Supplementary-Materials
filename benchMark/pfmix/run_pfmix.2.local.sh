@@ -13,4 +13,4 @@ sampleName=$( head -${SGE_TASK_ID} labSampleNames2Strains | tail -1  )
 #R --slave "--args ${sampleName} 2 ${seed}" < run_pfmix.r
 #done
 #R --slave "--args ${sampleName} 2 2" < run_pfmix.r
-R --slave "--args ${sampleName} 2 ${SGE_TASK_ID}" < run_pfmix.r
+R --slave "--args ${sampleName} 2 ${SGE_TASK_ID}" < run_pfmix.r.joe

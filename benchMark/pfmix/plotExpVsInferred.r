@@ -19,8 +19,8 @@ actualPlot <- function (){
         points(true.prop[,j][25:27], pfmix.prop[,j][25:27], pch = j, col = "blue", cex=1.4, lwd=2)
     }
 
-    legend("bottomright", legend = c("3D7", "Dd2",  "HB3",  "X7G8"), pch = c(1,2,3,4), cex=1.4, pt.lwd=2)
-    legend("topleft", legend = c("DEploid", "pfmix"), text.col = c("red", "blue"), cex=1.4)
+    legend("bottomright", legend = c("3D7", "Dd2",  "HB3",  "X7G8"), pch = c(1,2,3,4), cex=2, pt.lwd=2)
+    legend("topleft", legend = c("DEploid", "pfmix"), text.col = c("red", "blue"), cex=2)
 
 
 }
@@ -48,7 +48,8 @@ actualPlot()
 dev.off()
 
 pdf("trueVsInferred.pdf", width = 8, height = 8)
-plot(c(0,1), c(0,1), type="n", xlab = "True proportions", ylab = "Inferred proportions", cex.lab= 1.4)
+par(mar=c(5.1,5.1,2.1,2.1))
+plot(c(0,1), c(0,1), type="n", xlab = "True proportions", ylab = "Inferred proportions", cex.lab= 2, cex.axis= 1.6)
 lines(c(0,1), c(0,1), lty=2)
 lines(c(0,1), c(0.02,1.02), lty=2, col="grey", lwd = .5)
 lines(c(0,1), c(-0.02,0.98), lty=2, col="grey", lwd = .5)

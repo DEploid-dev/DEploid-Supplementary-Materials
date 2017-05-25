@@ -5,15 +5,15 @@ This directory contains code to phase strain haplotypes of mixed *Plasmodium fal
 To use `SHAPEIT`, we first split the VCF file by chromosome IDs. Each file contains SNPs of the 27 lab mixed samples. The field `FORMAT` specifies the information of each sample at every site (row), which can be `GT:AD:DP:GQ:PL` or `GT:AD:DP:GQ:PGT:PID:PL`. Regardless which format it uses, it must include the attribute `GT`, which specifies the genotype of the site. `SHAPEIT` uses the `GT` information, and phase the sequence. Note that the genotypes are inferred by GATK Best Practices ([DePristo *et al.* 2011](#gatk)).
 
 ```bash
-tabix labMixed.vcf.gz
-cp labMixed.vcf.gz lab.vcf.gz
+tabix labMixedAfterFilter.vcf.gz
+cp labMixedAfterFilter.vcf.gz lab.vcf.gz
 gunzip -df lab.vcf.gz
 head -n 10000 lab.vcf | grep "^#" >header
 
 #split into chunks by chromosome
 grep -v "^#" lab.vcf | cut -f 1 | sort | uniq | while read i;do
 cat header > $i.vcf
-tabix labMixed.vcf.gz $i >> $i.vcf
+tabix labMixedAfterFilter.vcf.gz $i >> $i.vcf
 done
 rm -f header
 ```
