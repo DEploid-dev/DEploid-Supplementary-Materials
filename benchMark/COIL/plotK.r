@@ -1,11 +1,12 @@
 rm(list = ls())
 set.seed(3)
-sampleNames = read.table("labSampleNames", header=F, stringsAsFactors = F)$V1
+#sampleNames = read.table("labSampleNames", header=F, stringsAsFactors = F)$V1
 #trueprop = read.csv("true.prop.csv.ordered.by.samplename", header=F)
 deploid = read.table("deploid.prop.csv", header=T)
 #true.eff.k = 1/rowSums(trueprop^2)
 true = read.csv("true.k.csv", header=T)
 coil = read.table("coil.k.txt", , header=F, skip=1)
+sampleNames = coil$V1
 
 pdf("trueVsInferredK.pdf", width = 8, height = 8)
 par(mar=c(5.1,5.1,2.1,2.1))
